@@ -16,6 +16,7 @@ public class GreetingResource {
         return new Greeting("Hello " + user + " from V1");
     }
 
+    /** try removing this method and another exception is thrown */
     @POST
     @Path("")
     @Consumes("application/vnd.mycompany.user.v2+json")

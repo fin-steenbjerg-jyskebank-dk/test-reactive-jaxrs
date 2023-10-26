@@ -20,7 +20,7 @@ public class RuntimeExceptionMapper implements ExceptionMapper<RuntimeException>
             LOG.info("Status = {}, Message: {}", e.getResponse().getStatus(), e.getMessage());
             return Response
                 .status(e.getResponse().getStatus())
-                .entity(new ExceptionInformation("Unexpected exception", exception))
+                .entity(new ExceptionInformation("Unexpected exception", e))
                 .type(ExceptionInformation.MEDIA_TYPE)
                 .build();
         } else {
