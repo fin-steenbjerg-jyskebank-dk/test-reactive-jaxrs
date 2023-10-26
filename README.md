@@ -4,7 +4,7 @@ This small Quarkus application illustrates a minor problem with media type versi
 
 It is not really the biggest problem in the world, but my exception mappers got confused and I ended up spending quite some time debugging my application.
 
-I don't believe (not 100% sure) I have seen this problem before I started using the quarkus-resteasy-reactive-jsonb extension (which is recommended by quarkus). I have used quarkus-resteasy-jsonb previously.
+I don't believe (not 100% sure) I have seen this problem before I started using the quarkus-resteasy-reactive-jsonb extension (resteasy-reactive is recommended by quarkus instead of just using resteasy). I have used quarkus-resteasy-jsonb previously.
 
 ## Running the application in dev mode
 
