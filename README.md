@@ -1,6 +1,6 @@
 # test-reactive-jaxrs
 
-This Quarkus application illustrates a minor problem with media type versioning. If somebody tries to access the REST resource with a unexpected content-type, two different exceptions are thrown depending on the number of methods implemented inside the REST resource. If the resource only has a single method, the thrown exception is a jakarta.ws.rs.NotSupportedException but when the resource has more than one method an jakarta.ws.rs.WebApplicationException is thrown.
+This application illustrates a minor problem with media type versioning when using Quarkus. If somebody tries to access the REST resource with an unexpected content-type, two different exceptions are thrown depending on the number of methods implemented inside the REST resource. If the resource only has a single method, the thrown exception is a jakarta.ws.rs.NotSupportedException but when the resource has more than one method an jakarta.ws.rs.WebApplicationException is thrown.
 
 It is not really the biggest problem in the world, but my exception mappers got confused and I ended up spending quite some time debugging my application.
 
@@ -15,11 +15,12 @@ To run the application:
 
 ## Testing the behaviour
 
-You can run a curl with a unexpected content-type (application/vnd.mycompany.baduser.v1+json) by running this script:
+You can run a curl with an unexpected content-type by running the script below. The script sets Content-Type to application/vnd.mycompany.baduser.v1+json and the application consumes either application/vnd.mycompany.user.v1+json or application/vnd.mycompany.user.v2+json (see https://github.com/fin-steenbjerg-jyskebank-dk/test-reactive-jaxrs/blob/main/src/main/java/dk/jyskebank/test/GreetingResource.java).
 
 ```shell script
 ./test-run.sh
 ```
+
 The output from the script is:
 
 ```
